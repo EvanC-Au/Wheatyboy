@@ -1,0 +1,28 @@
+{
+    trigSource: "UDP"
+
+    trigConfig: {
+        port: 9000
+    }
+
+    httpAPIPort: 8080
+
+    outputs: [
+        {module: "./lib/outOBS.js"
+        enabled: true
+        config: {
+            ip: "127.0.0.1"
+            port: 4444
+            password: "password"
+            }
+        },
+        {module: "./lib/outHELO.js"
+        enabled: false
+        config: {
+            ip: "127.0.0.1"
+            port: 0
+            }
+        }
+    ]
+    
+}

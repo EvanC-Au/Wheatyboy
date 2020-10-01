@@ -1,0 +1,24 @@
+{
+  "name": "wheatyboy",
+  "version": "1.0.0",
+  "description": "An agent to trigger recorders on events from Wheatstone consoles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanC-Au/Wheatyboy.git"
+  },
+  "author": "Evan Cottle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvanC-Au/Wheatyboy/issues"
+  },
+  "homepage": "https://github.com/EvanC-Au/Wheatyboy#readme",
+  "dependencies": {
+    "hjson": "^3.2.1",
+    "obs-websocket-js": "^4.0.2",
+    "pm2": "^4.5.0"
+  }
+}
