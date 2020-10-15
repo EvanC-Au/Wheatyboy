@@ -14,6 +14,7 @@
             ip: "127.0.0.1"
             port: 4444
             password: "password"
+            reconnect: 5000
             switchScenes: true
             offScene: "Scene 2"
             onScene: "Scene"
