@@ -14,6 +14,10 @@
             ip: "127.0.0.1"
             port: 4444
             password: "password"
+            switchScenes: true
+            offScene: "Scene 2"
+            onScene: "Scene"
+            cmdDelay: 100
             }
         },
         {module: "./lib/outHELO.js"
