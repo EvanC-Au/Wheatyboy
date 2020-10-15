@@ -13,6 +13,9 @@ console.log("INFO: Starting Wheatyboy");
 require("hjson/lib/require-config");
 var config=require("./config.hjson");
 
+var api = require("./lib/api.js");
+api.init();
+
 var trigger;
 var outputs = [];
 

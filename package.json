@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EvanC-Au/Wheatyboy#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "hjson": "^3.2.1",
     "obs-websocket-js": "^4.0.2",
     "pm2": "^4.5.0"
