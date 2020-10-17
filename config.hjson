@@ -23,8 +23,8 @@
         {module: "./lib/outHELO.js"
         enabled: false
         config: {
-            ip: "127.0.0.1"
-            port: 0
+            ip: "192.168.0.2"
+            port: 80
             }
         }
     ]
