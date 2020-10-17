@@ -5,7 +5,7 @@
         port: 9000
     }
 
-    httpAPIPort: 8080
+    remoteWSport: 80
 
     outputs: [
         {module: "./lib/outOBS.js"

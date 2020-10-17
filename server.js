@@ -13,11 +13,16 @@ console.log("INFO: Starting Wheatyboy");
 require("hjson/lib/require-config");
 var config=require("./config.hjson");
 
-var api = require("./lib/api.js");
-api.init();
-
 var trigger;
 var outputs = [];
+
+var enabled = true;
+
+var remote = require("./lib/remote.js");
+remote.init(config);
+setInterval(sendStatus,5000);
+
+
 
 switch (config.trigSource) {
     case "UDP":
@@ -38,9 +43,18 @@ config.outputs.forEach(dest => {
 trigger.begin(config.trigConfig);
 
 trigger.event.on("micChange", (micOn) => {
-    outputs.forEach(out => {
-        out.record(micOn);
-    });
+    if (enabled) {
+        outputs.forEach(out => {
+            out.record(micOn);
+        });
+    }
 });
 
+function sendStatus() {
+    remote.pubStatus("enstatus", enabled.toString());
+}
 
+remote.event.on("enableChange", () => {
+   enabled = !enabled;
+   sendStatus();
+})
