@@ -1,5 +1,6 @@
 # Wheatyboy 🍞                                                           
-An agent to trigger recorders on events from Wheatstone consoles 
+An agent to trigger recorders on events from Wheatstone consoles
+
 Evan Cottle (evan@evancottle.net / evan@atcroductions.tv)        
 
 ## Installation
@@ -11,13 +12,14 @@ Evan Cottle (evan@evancottle.net / evan@atcroductions.tv)
 ### Options for running
 * Interactively: `node server.js` or `npm start`
 * With PM2: `pm2 start` 
-** PM2 will ensure that Wheatyboy stays running, and will restart it if it fails
-** Logs to flour.log
-** Stop with `pm2 stop wheatyboy`
-** See status with `pm2 list`
+  * PM2 will ensure that Wheatyboy stays running, and will restart it if it fails
+  * Logs to flour.log
+  * Stop with `pm2 stop wheatyboy`
+  * See status with `pm2 list`
 
 ### Installing as a service on Windows
 https://www.npmjs.com/package/pm2-windows-service
+
 Do all these in an elevated (Run as Administrator) window
 1. Ensure that Wheatyboy is saved somewhere services can get to it (a folder directly under C:\ is probably ideal)
 1. (Required if not already done) Globally install PM2: `npm install -g pm2` and PM2 log rotation: `pm2 install pm2-logrotate` 
