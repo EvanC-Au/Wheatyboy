@@ -1,11 +1,15 @@
 {
-    trigSource: "UDP"
-
-    trigConfig: {
-        port: 9000
-    }
-
     remoteWSport: 80
+
+    triggers: [
+        {module: "./lib/trigUDP.js"
+        enabled: true
+        priority: 1
+        config: {
+            port: 9000
+            }
+        }
+    ]
 
     outputs: [
         {module: "./lib/outOBS.js"
