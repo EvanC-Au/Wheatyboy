@@ -30,6 +30,18 @@
             ip: "192.168.0.2"
             port: 80
             }
+        },
+        {module: "./lib/outvMix.js"
+        enabled: true
+        config: {
+            ip: "127.0.0.1"
+            port: 8088
+            overlayEnabled: true
+            overlayID: 1
+            // Input numbers or names, or "off" for overlay off
+            overlayOnInput: "1"
+            overlayOffInput: "off"
+            }
         }
     ]
     
