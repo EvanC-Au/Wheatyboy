@@ -24,6 +24,8 @@
             switchScenes: true
             offScene: "Scene 2"
             onScene: "Scene"
+            splitFiles: true
+            splitTimeout: 3600  // In seconds (60 min = 3600)
             }
         },
         {module: "./lib/outHELO.js"

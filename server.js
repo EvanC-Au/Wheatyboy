@@ -61,7 +61,7 @@ function onMicChange(micOn) {
     let forced = triggers.some((trig) => {
         if (trig.force > -1) {
             outputs.forEach(out => {
-                out.record(!!trig.force);
+                out.record(!!trig.force, true);
             });
             return true;
         }
@@ -69,7 +69,7 @@ function onMicChange(micOn) {
     
     if (enabled && !forced) {
         outputs.forEach(out => {
-            out.record(micOn);
+            out.record(micOn, false);
         });
     }
 }
