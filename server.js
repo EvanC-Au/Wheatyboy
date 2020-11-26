@@ -59,7 +59,7 @@ function onRecUpdate() {
     // First, check if any higher priority module is exerting a force
     // If it is, ensure that's in effect then skip the rest
     let forced = triggers.some((trig) => {
-        if (trig.force > -1) {
+        if (trig.getForce() > -1) {
             outputs.forEach(out => {
                 out.record(!!trig.force, true);
             });
