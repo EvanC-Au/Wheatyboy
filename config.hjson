@@ -10,6 +10,14 @@
             logging: false
             logfile: "udp.log"
             }
+        },
+        {module: "./lib/trigiCal.js"
+        enabled: true
+        priority: 0     // iCal should force recordings, so needs a higher priority
+        config: {
+            url: "https://calendar.google.com/calendar/ical/c_97nipr9761rj07u480is95t2jk%40group.calendar.google.com/public/basic.ics"
+            updateFreq: 120     // In seconds
+            }
         }
     ]
 
@@ -36,7 +44,7 @@
             }
         },
         {module: "./lib/outvMix.js"
-        enabled: true
+        enabled: false
         config: {
             ip: "127.0.0.1"
             port: 8088

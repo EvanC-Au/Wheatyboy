@@ -61,7 +61,7 @@ function onRecUpdate() {
     let forced = triggers.some((trig) => {
         if (trig.getForce() > -1) {
             outputs.forEach(out => {
-                out.record(!!trig.force, true);
+                out.record(!trig.force, true);
             });
             return true;
         }
