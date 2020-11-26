@@ -39,7 +39,7 @@ config.triggers.sort(sortMods).forEach(trig => {
     if (trig.enabled) {
         i = triggers.push(require(trig.module));
         triggers[i-1].begin(trig.config);
-        triggers[i-1].event.on("micChange", onMicChange);
+        triggers[i-1].event.on("recUpdate", onRecUpdate);
     }
 });
 
@@ -55,7 +55,7 @@ config.outputs.forEach(dest => {
     }
 });
 
-function onMicChange(micOn) {
+function onRecUpdate() {
     // First, check if any higher priority module is exerting a force
     // If it is, ensure that's in effect then skip the rest
     let forced = triggers.some((trig) => {
@@ -66,16 +66,17 @@ function onMicChange(micOn) {
             return true;
         }
     });
+
+    // Loop through triggers to see whether any are saying to record - stop when we find one
+    let rec = triggers.some((trig) => {
+        return trig.getRec();
+    });
     
     if (enabled && !forced) {
         outputs.forEach(out => {
-            out.record(micOn, false);
+            out.record(rec, false);
         });
     }
-}
-
-function onForceRecord(data) {
- // Do scheduled recording
 }
 
 function sendStatus() {
