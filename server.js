@@ -56,25 +56,17 @@ config.outputs.forEach(dest => {
 });
 
 function onRecUpdate() {
-    // First, check if any higher priority module is exerting a force
-    // If it is, ensure that's in effect then skip the rest
-    let forced = triggers.some((trig) => {
-        if (trig.getForce() > -1) {
-            outputs.forEach(out => {
-                out.record(!trig.force, true);
-            });
-            return true;
+    if (enabled) {
+        // Loop through triggers to see whether any are saying to record - stop when we find one
+        let rec = triggers.some((trig) => {
+            //console.log("DEBUG: Recording update - triggered by:",trig.name);
+            return trig.getRec();
+        });
+        if (!rec) {
+            //console.log("DEBUG: Recording update - not triggered");
         }
-    });
-
-    // Loop through triggers to see whether any are saying to record - stop when we find one
-    let rec = triggers.some((trig) => {
-        return trig.getRec();
-    });
-    
-    if (enabled && !forced) {
         outputs.forEach(out => {
-            out.record(rec, false);
+            out.record(rec);
         });
     }
 }
