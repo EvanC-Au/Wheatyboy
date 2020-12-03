@@ -17,9 +17,17 @@
         priority: 2     
         config: {
             url: "https://calendar.google.com/calendar/ical/c_97nipr9761rj07u480is95t2jk%40group.calendar.google.com/public/basic.ics"
-            updateFreq: 120     // In seconds
+            updateFreq: 1200     // In seconds
             }
-        }
+        },
+        {module: "./lib/trigCron.js"
+        enabled: false
+        priority: 3     
+        config: {
+            crontab: "crontab.hjson"
+            updateFreq: 1200     // In seconds
+            }
+        }        
     ]
 
     outputs: [
