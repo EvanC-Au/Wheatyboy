@@ -59,11 +59,15 @@ function onRecUpdate() {
     if (enabled) {
         // Loop through triggers to see whether any are saying to record - stop when we find one
         let rec = triggers.some((trig) => {
-            //console.log("DEBUG: Recording update - triggered by:",trig.name);
-            return trig.getRec();
+            if (trig.getRec()) {
+                console.log("DEBUG: Recording update - triggered by:",trig.name);
+                return true;
+            } else {
+                return false;
+            }
         });
         if (!rec) {
-            //console.log("DEBUG: Recording update - not triggered");
+            console.log("DEBUG: Recording update - not triggered");
         }
         outputs.forEach(out => {
             out.record(rec);
