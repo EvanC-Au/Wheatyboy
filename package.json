@@ -1,6 +1,6 @@
 {
   "name": "wheatyboy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An agent to trigger recorders on events from Wheatstone consoles",
   "main": "server.js",
   "scripts": {
